@@ -14,8 +14,6 @@
     .ad-wrap { max-width: 960px; margin: 24px auto 0; padding: 0 20px; }
     .ad-slot { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: flex; justify-content: center; align-items: center; overflow: hidden; }
     .ad-slot.desktop { min-height: 90px; }
-    .ad-slot.mobile { min-height: 50px; margin-top: 12px; }
-    .mobile-only { display: none; }
     .features { max-width: 960px; margin: 24px auto 60px; padding: 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .card { background: white; border-radius: 12px; padding: 32px 24px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     .card h3 { font-size: 20px; margin-bottom: 12px; }
@@ -24,8 +22,6 @@
     footer { text-align: center; padding: 40px 20px; color: #999; font-size: 13px; }
     @media (max-width: 768px) {
       .features { grid-template-columns: 1fr; }
-      .desktop-only { display: none; }
-      .mobile-only { display: flex; }
     }
   </style>
 </head>
@@ -36,8 +32,18 @@
     <a href="#">立即下载</a>
   </div>
   <div class="ad-wrap">
-    <div id="ad-desktop" class="ad-slot desktop desktop-only"></div>
-    <div id="ad-mobile" class="ad-slot mobile mobile-only"></div>
+    <div class="ad-slot desktop">
+      <script>
+        atOptions = {
+          'key' : 'babf609f542984df0ccd8272e02f32ba',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/babf609f542984df0ccd8272e02f32ba/invoke.js"></script>
+    </div>
   </div>
   <div class="features">
     <div class="card">
@@ -57,28 +63,5 @@
     </div>
   </div>
   <footer>&copy; 2026 氧气 - 游戏修改器平台</footer>
-  <script>
-    function loadAdsterraAd(containerId, key, width, height) {
-      var container = document.getElementById(containerId);
-      if (!container) return;
-      window.atOptions = {
-        key: key,
-        format: 'iframe',
-        height: height,
-        width: width,
-        params: {}
-      };
-      var script = document.createElement('script');
-      script.src = 'https://www.highperformanceformat.com/' + key + '/invoke.js';
-      container.appendChild(script);
-    }
-    if (window.innerWidth <= 768) {
-      loadAdsterraAd('ad-mobile', '850c6ea73dc22eef2691ec83989aa63b', 320, 50);
-    } else if (window.innerWidth <= 1100) {
-      loadAdsterraAd('ad-desktop', '8a4e8d74ae4c3d3efe5befe2b0f21e85', 300, 250);
-    } else {
-      loadAdsterraAd('ad-desktop', 'babf609f542984df0ccd8272e02f32ba', 728, 90);
-    }
-  </script>
 </body>
 </html>
